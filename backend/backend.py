@@ -8,7 +8,7 @@ searcher = Searcher()
 # CORS跨域支持
 CORS(app, resources={
     r"/search": {
-        "origins": ["http://127.0.0.1:5500", "http://localhost:5500"],
+        "origins": ["https://paperwithcode-snapshot-frontend.onrender.com"],
         "methods": ["GET"]
     }
 }) 
