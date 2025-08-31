@@ -23,7 +23,7 @@ const app = createApp({
             };
 
             axios
-                .get('http://127.0.0.1:5000/search', { params })
+                .get('https://paperwithcode-snapshot.onrender.com/search', { params })
                 .then(response => {
                     this.response = Array.isArray(response.data) ? response.data : [response.data];
                 })
