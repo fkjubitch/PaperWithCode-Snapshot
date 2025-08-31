@@ -1,0 +1,545 @@
+/* charset: utf-8 */
+
+/****************************
+*  style of github corner   *
+****************************/
+.github-corner {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 105px;
+    height: 105px;
+    z-index: 1000;
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+    background-color: #24292e;
+    transition: background-color 0.3s ease;
+}
+
+.github-corner:hover {
+    background-color: #1a1f23;
+}
+
+.github-icon {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 60px;
+    height: 60px;
+    filter: invert(1);
+    transition: transform 0.3s ease;
+}
+
+.github-corner:hover .github-icon {
+    transform: scale(1.025);
+}
+
+/***************************
+*    style of global       *
+***************************/
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f5f7fa;
+}
+
+#app {
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/***************************
+*   style of background    *
+***************************/
+.background {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/***************************
+*    style of header       *
+***************************/
+.header {
+    text-align: center;
+    margin: 50px 0 30px;
+}
+
+.main-title {
+    font-size: 36px;
+    color: #2c3e50;
+    margin: 0 0 10px;
+    font-weight: 700;
+}
+
+.sub-title {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+/****************************
+*    style of loading      *
+****************************/
+.loading-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #4a90e2;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loading-text {
+    color: #666;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/****************************
+*    style of search box    *
+****************************/
+.search-box {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px;
+    margin: 40px auto 5px; 
+    max-width: 800px; 
+    padding: 0 20px; 
+}
+
+.advanced-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.advanced-toggle {
+    height: 30px;
+    padding: 0 15px;
+    border: none;
+    background-color: transparent;
+    font-size: 14px;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin: 5px 0;
+}
+
+.advanced-toggle:hover {
+    color: #4a90e2;
+}
+
+.advanced-toggle .arrow {
+    display: inline-block;
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: rotate(0deg);
+}
+
+.advanced-toggle .arrow.up {
+    transform: rotate(180deg);
+}
+
+.advanced-options {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+    display: flex;
+    gap: 20px;
+    transform: translateY(-10px);
+    margin: 0;
+}
+
+.advanced-options.show {
+    max-height: 60px;
+    opacity: 1;
+    transform: translateY(0);
+    margin: 10px auto 20px;
+}
+
+.advanced-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #666;
+    font-size: 14px;
+}
+
+.advanced-option label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.advanced-option input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.search-type {
+    height: 50px;
+    min-width: 150px;
+    padding: 0 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23333' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 15px;
+    box-sizing: border-box;
+}
+
+.search-type:hover {
+    border-color: #4a90e2;
+    box-shadow: 0 2px 8px rgba(74, 144, 226, 0.1);
+}
+
+.search-type:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+}
+
+.search-type option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: white;
+    color: #333;
+}
+
+.search-type option:hover {
+    background-color: #f5f7fa;
+}
+
+
+/***************************
+*  style of search button  *
+***************************/
+.search-button {
+    width: 50px;  
+    height: 50px; 
+    background-image: url('../images/search.png'); 
+    background-size: 25px;  
+    background-position: center;  
+    background-repeat: no-repeat;  
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-width: 1px;
+    transition: all 0.3s ease;  /* 添加平滑过渡效果 */
+    position: relative;         /* 为涟漪效果准备 */
+    overflow: hidden;          /* 防止涟漪效果溢出 */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* 添加轻微阴影 */
+    cursor: pointer;  /* 鼠标悬停时显示指针 */
+    background-color: transparent;  
+    color: transparent;  /* 默认隐藏文字 */
+    font-size: 0;  /* 确保文字完全隐藏 */
+}
+
+/* 当背景图片加载失败时显示文字 */
+.search-button:-moz-broken-image,
+.search-button:-webkit-broken-image,
+.search-button:not([style*='background-image']),
+.search-button[style*='background-image: none'] {
+    color: #333;  
+    font-size: 14px;  
+    width: auto;  
+    padding: 0 15px;  
+}
+
+.search-button:hover {
+    opacity: 0.8;  /* 鼠标悬停时的透明度效果 */
+    transform: translateY(-2px);  /* 悬停时轻微上浮 */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);  /* 悬停时加深阴影 */
+    background-color: rgba(0,0,0,0.02);     /* 轻微背景色变化 */
+}
+
+.search-button:active {
+    transform: translateY(1px);   /* 点击时下沉效果 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);  /* 点击时减小阴影 */
+}
+
+/* 添加点击涟漪效果 */
+.search-button::after {
+    content: '';
+    position: absolute;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+    opacity: 0;
+    transition: all 0.8s;
+    transform: scale(0);
+    pointer-events: none;
+}
+
+.search-button:active::after {
+    transform: scale(1);
+    opacity: 1;
+    transition: 0s;
+}
+
+/* 添加边框动画 */
+.search-button:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
+}
+
+
+/****************************
+*    style of input box     *
+****************************/
+.input-box {
+    width: 500px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 0 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.input-box:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 3px rgba(74,144,226,0.2);
+}
+
+
+/****************************
+*   style of search result  *
+****************************/
+.search-result {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.result-item {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.paper-title {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.4;
+    color: #2c3e50;
+}
+
+.highlight {
+    background-color: #fff3cd;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(255, 243, 205, 0.5);
+    transition: background-color 0.2s ease;
+}
+
+.paper-title a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+
+.paper-title a:hover {
+    color: #4a90e2;
+}
+
+.paper-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.framework, .arxiv-id, .repo-url {
+    color: #666;
+    font-size: 14px;
+}
+
+.paper-links {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.link-button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.link-button:hover {
+    background-color: #e0e0e0;
+}
+
+.link-button.github {
+    background-color: #24292e;
+    color: white;
+}
+
+.link-button.github:hover {
+    background-color: #1a1f23;
+}
+
+.paper-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.badge.official {
+    background-color: #4caf50;
+    color: white;
+}
+
+.badge.github {
+    background-color: #24292e;
+    color: white;
+}
+
+.badge.paper {
+    background-color: #9c27b0;
+    color: white;
+}
+
+/****************************
+*   style of pagination     *
+****************************/
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+    padding: 20px 0;
+}
+
+.page-button {
+    padding: 8px 16px;
+    border: 1px solid #e0e0e0;
+    background-color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    color: #333;
+}
+
+.page-button:hover:not(:disabled) {
+    background-color: #f5f5f5;
+    border-color: #d0d0d0;
+}
+
+.page-button:disabled {
+    background-color: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.page-info {
+    font-size: 14px;
+    color: #666;
+    padding: 0 10px;
+}
+
+.page-jump {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.page-input {
+    width: 60px;
+    height: 32px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 0 8px;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+}
+
+.page-input:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74,144,226,0.2);
+}
+
+/* 移除输入框的上下箭头 */
+.page-input::-webkit-inner-spin-button,
+.page-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.page-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.page-button.jump {
+    padding: 8px 12px;
+}
